@@ -5,7 +5,7 @@ export default class FamilyChanger extends Component {
     return (
       <div>
         <p> Font Family </p>
-        <select>
+        <select onChange={ (e) => { this.props.update(e.target.value) } }>
           <option value="monospace"> Monospace </option>
           <option value="arial"> Arial </option>
           <option value="courier"> Courier </option>

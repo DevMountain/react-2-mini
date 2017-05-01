@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 
 export default class TextContainer extends Component {
-  // constructor
+  constructor() {
+    super();
+    this.state = {
+      fontColor: 'black',
+      fontFamily: 'monospace',
+      fontSize: 12
+    }
+  }
 
-  // componentWillReceiveProps
+  componentWillReceiveProps(props) {
+    this.setState({ fontColor: props.fontColor, fontFamily: props.fontFamily, fontSize: props.fontSize });
+  }
 
   render() {
     return (
