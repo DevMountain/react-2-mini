@@ -8,3 +8,119 @@ body {
   width: 500px;
   height: 500px;
 }
+
+/* Container Elements */
+.puzzleBox {
+	width: 405px;
+	border-radius: 2px;
+	background-color: #424242;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+ .resultsBox {
+	width: 373px;
+	height: 72px;
+	border-radius: 2px;
+	background-color: #303030;
+}
+
+.inputLine {
+	width: 373px;
+	height: 2px;
+	border: solid 1px #3fbaf9;
+}
+
+
+/* Buttons */
+
+.confirmationButton {
+	width: 63px;
+	height: 36px;
+	border-radius: 2px;
+	background-color: #4fc3f7;
+	background-color: var(--sky-blue);
+}
+
+.confirmationButton:hover {
+	width: 63px;
+	height: 36px;
+	border-radius: 2px;
+	background-color: #4fc3f7;
+	background-color: var(--sky-blue);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.23);
+}
+
+.neutralButton {
+	width: 75px;
+	height: 36px;
+	border-radius: 2px;
+	background-color: #bdbdbd;
+	background-color: var(--pinkish-grey);
+}
+
+.neutralButton:hover {
+	width: 75px;
+	height: 36px;
+	border-radius: 2px;
+	background-color: #bdbdbd;
+	background-color: var(--pinkish-grey);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.23);
+}
+
+.warningButton {
+	width: 75px;
+	height: 36px;
+	border-radius: 2px;
+	background-color: #e57373;
+}
+
+.warningButton {
+	width: 75px;
+	height: 36px;
+	border-radius: 2px;
+	background-color: #e57373;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.23);
+}
+
+/* Text & Text Entry */
+.resultPlaceholder {
+	font-family: Roboto;
+	font-size: 16px;
+	line-height: 1.5;
+	color: #ffffff;
+	color: var(--white);
+}
+
+.titleText {
+	font-family: Roboto;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 1.4;
+	color: #ffffff;
+	color: var(--white);
+}
+
+.buttonText {
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: 500;
+	color: #ffffff;
+	color: var(--white);
+}
+
+.bodyText {
+	font-family: Roboto;
+	font-size: 13px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.54;
+	letter-spacing: normal;
+	color: #ffffff;
+	color: var(--white);
+}
+
+.bodyText .text-style-1 {
+	color: #43b5f5;
+}
+
+
