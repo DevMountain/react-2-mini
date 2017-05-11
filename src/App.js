@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 
 import EditToggle from './components/EditToggle';
 import ColorChanger from './components/ColorChanger'
