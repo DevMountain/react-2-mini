@@ -15,6 +15,8 @@ You can find a finished live example <a href="https://devmountain.github.io/them
 * Run `npm install`.
 * Run `npm start` after `npm install` has finished.
 
+<img src="https://github.com/DevMountain/theme-changer/blob/solution/readme/2.png" />
+
 ## Step 1
 
 ### Summary
@@ -40,9 +42,9 @@ In this step, we will create the initial state for `src/App.js`. On this state o
 
 ```jsx
 import React, { Component } from 'react';
-import './App.css';
 
 // Components
+import EditToggle from './components/EditToggle';
 import ColorChanger from './components/ColorChanger';
 import SizeChanger from './components/SizeChanger';
 import FamilyChanger from './components/FamilyChanger';
@@ -65,22 +67,20 @@ class App extends Component {
 
   // updateFamily
 
-  // updateStatus
+  // updateEditStatus
 
   render() {
     return (
       <div>
-        <p> Editable </p>
-        <select>
-          <option value="true"> Allow Edit </option>
-          <option value="false"> Disable Edit </option>
-        </select>
-        <div>
+        <div className="headerBar">
+          { /* Render EditToggle */ }
           { /* Render ColorChanger */ }
           { /* Render SizeChanger */ }
           { /* Render FamilyChanger */ }
         </div>
-        { /* Render TextContainer */ }
+        <div className="textArea">
+          { /* Render TextContainer */ }
+        </div>
       </div>
     )
   }
@@ -106,7 +106,7 @@ In this step, we will create class methods in `src/App.js` to update `fontColor`
   * Use `setState` to update `fontSize` to `val`.
 * Create an updateFamily method that takes a parameter called `val` where it says `// updateFamily`:
   * Use `setState` to update `fontFamily` to `val`.
-* Create an updateStatus method that takes a parameter called `val` where it says `// updateStatus`:
+* Create an updateEditStatus method that takes a parameter called `val` where it says `// updateEditStatus`:
   * Use `setState` to update `allowEdit` to `val`.
 
 ### Solution
@@ -117,9 +117,9 @@ In this step, we will create class methods in `src/App.js` to update `fontColor`
 
 ```jsx
 import React, { Component } from 'react';
-import './App.css';
 
 // Components
+import EditToggle from './components/EditToggle';
 import ColorChanger from './components/ColorChanger';
 import SizeChanger from './components/SizeChanger';
 import FamilyChanger from './components/FamilyChanger';
@@ -148,24 +148,22 @@ class App extends Component {
     this.setState({ fontFamily: val });
   }
 
-  updateStatus(val) {
-    this.setState({ allowEdit: val })
+  updateEditStatus(val) {
+    this.setState({ allowEdit: val });
   }
 
   render() {
     return (
       <div>
-        <p> Editable </p>
-        <select>
-          <option value="true"> Allow Edit </option>
-          <option value="false"> Disable Edit </option>
-        </select>
-        <div>
+        <div className="headerBar">
+          { /* Render EditToggle */ }
           { /* Render ColorChanger */ }
           { /* Render SizeChanger */ }
           { /* Render FamilyChanger */ }
         </div>
-        { /* Render TextContainer */ }
+        <div className="textArea">
+          { /* Render TextContainer */ }
+        </div>
       </div>
     )
   }
@@ -185,7 +183,7 @@ In this step, we will bind `this` to our methods in the `constructor` method in 
 ### Instructions
 
 * Open `src/App.js`.
-* Bind `this` to the `updateColor`, `updateSize`, and `updateFamily` methods at the bottom of the `constructor` method.
+* Bind `this` to the `updateColor`, `updateSize`, `updateFamily`, and `updateEditStatus` methods at the bottom of the `constructor` method.
 
 ### Solution
 
@@ -195,9 +193,9 @@ In this step, we will bind `this` to our methods in the `constructor` method in 
 
 ```jsx
 import React, { Component } from 'react';
-import './App.css';
 
 // Components
+import EditToggle from './components/EditToggle';
 import ColorChanger from './components/ColorChanger';
 import SizeChanger from './components/SizeChanger';
 import FamilyChanger from './components/FamilyChanger';
@@ -213,9 +211,10 @@ class App extends Component {
       allowEdit: 'true'
     };
 
-    this.updateColor = this.updateColor.bind(this);
-    this.updateSize = this.updateSize.bind(this);
-    this.updateFamily = this.updateFamily.bind(this);
+    this.updateColor = this.updateColor.bind( this );
+    this.updateSize = this.updateSize.bind( this );
+    this.updateFamily = this.updateFamily.bind( this );
+    this.updateEditStatus = this.updateEditStatus.bind( this );
   }
 
   updateColor(val) {
@@ -230,24 +229,22 @@ class App extends Component {
     this.setState({ fontFamily: val });
   }
 
-  updateStatus(val) {
-    this.setState({ allowEdit: val })
+  updateEditStatus(val) {
+    this.setState({ allowEdit: val });
   }
 
   render() {
     return (
       <div>
-        <p> Editable </p>
-        <select>
-          <option value="true"> Allow Edit </option>
-          <option value="false"> Disable Edit </option>
-        </select>
-        <div>
+        <div className="headerBar">
+          { /* Render EditToggle */ }
           { /* Render ColorChanger */ }
           { /* Render SizeChanger */ }
           { /* Render FamilyChanger */ }
         </div>
-        { /* Render TextContainer */ }
+        <div className="textArea">
+          { /* Render TextContainer */ }
+        </div>
       </div>
     )
   }
@@ -262,11 +259,13 @@ export default App;
 
 ### Summary
 
-In this step, we will `render` our `ColorChanger`, `FamilyChanger`, and `SizeChanger` components in `App.js` with an `update` prop.
+In this step, we will `render` our imported components in `App.js`.
 
 ### Instructions
 
 * Open `src/App.js`.
+* Render the `EditToggle` component where it says `{ /* Render EditToggle */ }`:
+  * Add a prop called `update` that is equal to the `updateEditStatus` method.
 * Render the `ColorChanger` component where it says `{ /* Render ColorChange */ }`:
   * Add a prop called `update` that is equal to the `updateColor` method.
   * Add a prop called `allowEdit` that is eqaul to the value of `allowEdit` on state.
@@ -276,6 +275,10 @@ In this step, we will `render` our `ColorChanger`, `FamilyChanger`, and `SizeCha
 * Render the `FamilyChanger` component where it says `{ /* Render FamilyChanger */ }`:
   * Add a prop called `update` that is equal to the `updateFamily` method.
   * Add a prop called `allowEdit` that is eqaul to the value of `allowEdit` on state.
+* Render the `TextContainer` component where it says `{ /* Render TextContainer */ }`:
+  * Add a prop called `fontColor` that equals `fontColor` on state.
+  * Add a prop called `fontSize` that equals `fontSize` on state.
+  * Add a prop called `fontFamily` that equals `fontFamily` on state.
 
 ### Solution
 
@@ -515,91 +518,6 @@ export default App;
 </details>
 
 ## Step 7
-
-### Summary
-
-In this step, we will `render` the `TextContainer` component in `App.js` with a `fontColor`, `fontSize`, and `fontFamily` prop equal to `fontColor`, `fontSize` and `fontFamily`'s value on `App.js`'s state.
-
-### Instructions
-
-* Open `src/App.js`.
-* Render the `TextContainer` component where it says `{ /* Render TextContainer */ }`:
-  * Add a `fontColor` prop that equals `fontColor` on state.
-  * Add a `fontSize` prop that equals `fontSize` on state.
-  * Add a `fontFamily` prop that equals `fontFamily` on state.
-
-### Solution
-
-<details>
-
-<summary> <code> src/App.js </code> </summary>
-
-```jsx
-import React, { Component } from 'react';
-import './App.css';
-
-// Components
-import ColorChanger from './components/ColorChanger';
-import SizeChanger from './components/SizeChanger';
-import FamilyChanger from './components/FamilyChanger';
-import TextContainer from './components/TextContainer';
-
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      fontColor: 'black',
-      fontSize: 12,
-      fontFamily: 'monospace',
-      allowEdit: 'true'
-    };
-
-    this.updateColor = this.updateColor.bind(this);
-    this.updateSize = this.updateSize.bind(this);
-    this.updateFamily = this.updateFamily.bind(this);
-  }
-
-  updateColor(val) {
-    this.setState({ fontColor: val });
-  }
-
-  updateSize(val) {
-    this.setState({ fontSize: val });
-  }
-
-  updateFamily(val) {
-    this.setState({ fontFamily: val });
-  }
-
-  updateStatus(val) {
-    this.setState({ allowEdit: val })
-  }
-
-  render() {
-    return (
-      <div>
-        <p> Editable </p>
-        <select onChange={ (e) => this.updateStatus(e.target.value) }>
-          <option value="true"> Allow Edit </option>
-          <option value="false"> Disable Edit </option>
-        </select>
-        <div>
-          <ColorChanger update={ this.updateColor } />
-          <SizeChanger update={ this.updateSize } />
-          <FamilyChanger update={ this.updateFamily } />
-        </div>
-        <TextContainer fontColor={ this.state.fontColor } fontSize={ this.state.fontSize } fontFamily={ this.state.fontFamily } />
-      </div>
-    )
-  }
-}
-
-export default App;
-```
-
-</details>
-
-## Step 8
 
 ### Summary
 
