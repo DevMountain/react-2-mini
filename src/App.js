@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import EditToggle from './components/EditToggle';
 import ColorChanger from './components/ColorChanger'
 import SizeChanger from './components/SizeChanger';
 import FamilyChanger from './components/FamilyChanger';
@@ -12,12 +13,14 @@ class App extends Component {
     this.state = {
       fontColor: 'black',
       fontSize: 12,
-      fontFamily: 'monospace'
+      fontFamily: 'monospace',
+      allowEdit: 'true'
     };
 
-    this.updateColor = this.updateColor.bind(this);
-    this.updateSize = this.updateSize.bind(this);
-    this.updateFamily = this.updateFamily.bind(this);
+    this.updateEditStatus = this.updateEditStatus.bind( this );
+    this.updateColor = this.updateColor.bind( this );
+    this.updateSize = this.updateSize.bind( this );
+    this.updateFamily = this.updateFamily.bind( this );
   }
 
   updateColor(val) {
@@ -32,15 +35,22 @@ class App extends Component {
     this.setState({ fontFamily: val });
   }
 
+  updateEditStatus(val) {
+    this.setState({ allowEdit: val });
+  }
+
   render() {
     return (
       <div>
-        <div>
-          <ColorChanger update={ this.updateColor } />
-          <SizeChanger update={ this.updateSize } />
-          <FamilyChanger update={ this.updateFamily } />
+        <div className="headerBar">
+          <EditToggle update={ this.updateEditStatus } />
+          <ColorChanger update={ this.updateColor } allowEdit={ this.state.allowEdit }/>
+          <SizeChanger update={ this.updateSize } allowEdit={ this.state.allowEdit } />
+          <FamilyChanger update={ this.updateFamily } allowEdit={ this.state.allowEdit } />
         </div>
-        <TextContainer fontColor={ this.state.fontColor } fontSize={ this.state.fontSize } fontFamily={ this.state.fontFamily } />
+        <div className="textArea">
+          <TextContainer fontColor={ this.state.fontColor } fontSize={ this.state.fontSize } fontFamily={ this.state.fontFamily } />
+        </div>
       </div>
     )
   }
