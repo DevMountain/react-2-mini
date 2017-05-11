@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 // Components
-import ColorChanger from './components/ColorChanger'
+import EditToggle from './components/EditToggle';
+import ColorChanger from './components/ColorChanger';
 import SizeChanger from './components/SizeChanger';
 import FamilyChanger from './components/FamilyChanger';
 import TextContainer from './components/TextContainer';
@@ -15,15 +16,20 @@ class App extends Component {
 
   // updateFamily
 
+  // updateEditStatus
+
   render() {
     return (
       <div>
-        <div>
+        <div className="headerBar">
+          { /* Render EditToggle */ }
           { /* Render ColorChanger */ }
           { /* Render SizeChanger */ }
           { /* Render FamilyChanger */ }
         </div>
-        { /* Render TextContainer */ }
+        <div className="textArea">
+          { /* Render TextContainer */ }
+        </div>
       </div>
     )
   }
