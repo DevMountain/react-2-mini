@@ -361,19 +361,36 @@ export default App;
 
 ### Summary
 
-In this step, we will update our `select` elements in the `ColorChanger`, `FamilyChanger`, and `SizeChanger` components to use an `onChange` that calls the `update` prop with the value of the `select` element. We will also disable the `select` element if the value of `allowEdit` is `"false"`.
+In this step, we will update our `select` elements in the `EditToggle`, `ColorChanger`, `FamilyChanger`, and `SizeChanger` components to use an `onChange` that calls the `update` prop with the value of the `select` element. We will also disable the `select` element if the value of `allowEdit` is `"false"`.
 
 ### Instructions
 
-* Open `ColorChanger.js`, `FamilyChanger.js`, and `SizeChanger.js` from `src/components/`.
-* Locate the `select` tag, in all three files, and add an `onChange` prop:
+* Open `EditToggle`, `ColorChanger.js`, `FamilyChanger.js`, and `SizeChanger.js` from `src/components/`.
+* Locate the `select` tag, in all four files, and add an `onChange` prop:
   * The `onChange` should use an arrow function to capture the `event`. 
   * Inside the arrow function call the `update` prop with the value of the target from the `event`.
-  * Parse Int the value of the target when in `SizeChanger`. 
-* Locate the `select` tag, in all three files, and add a `disabled` prop:
-  * The `select` element should be `disabled` if `allowEdit` on state is equal to `"false"`.
+  * Parse Int the value of the target when in `SizeChanger.js`. 
+* Locate the `select` tag, in `ColorChanger`, `FamilyChanger`, and `SizeChanger`, and add a `disabled` prop:
+  * The `select` element should be `disabled` if `allowEdit` on <b>state</b> is equal to `"false"`.
 
 ### Solution
+
+<details>
+
+<summary> <code> src/components/EditToggle.js </code> </summary>
+
+```jsx
+render() {
+  return (
+    <select className="dropDownContainer ml0" onChange={ (e) => this.props.update(e.target.value) }>
+      <option value="true"> Allow Edit </option>
+      <option value="false"> Disable Edit </option>
+    </select>
+  )
+}
+```
+
+</details>
 
 <details>
 
@@ -382,14 +399,11 @@ In this step, we will update our `select` elements in the `ColorChanger`, `Famil
 ```jsx
 render() {
   return (
-    <div>
-      <p> Font Color </p>
-      <select onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
-        <option value="black"> Black </option>
-        <option value="blue"> Blue </option>
-        <option value="green"> Green </option>
-      </select>
-    </div>
+    <select className="dropDownContainer" onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
+      <option value="black"> Black </option>
+      <option value="blue"> Blue </option>
+      <option value="green"> Green </option>
+    </select>
   )
 }
 ```
@@ -403,14 +417,11 @@ render() {
 ```jsx
 render() {
   return (
-    <div>
-      <p> Font Family </p>
-      <select onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
-        <option value="monospace"> Monospace </option>
-        <option value="arial"> Arial </option>
-        <option value="courier"> Courier </option>
-      </select>
-    </div>
+    <select className="dropDownContainer" onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
+      <option value="monospace"> Monospace </option>
+      <option value="arial"> Arial </option>
+      <option value="courier"> Courier </option>
+    </select>
   )
 }
 ```
@@ -424,14 +435,11 @@ render() {
 ```jsx
 render() {
   return (
-    <div>
-      <p> Font Size </p>
-      <select onChange={ (e) => this.props.update(parseInt(e.target.value, 10)) } disabled={ this.state.allowEdit === "false" }>
-        <option value="12"> 12 </option>
-        <option value="13"> 13 </option>
-        <option value="14"> 14 </option>
-      </select>
-    </div>
+    <select className="dropDownContainer" onChange={ (e) => this.props.update( parseInt(e.target.value) ) } disabled={ this.state.allowEdit === "false" }>
+      <option value="12"> 12 </option>
+      <option value="13"> 13 </option>
+      <option value="14"> 14 </option>
+    </select>
   )
 }
 ```
