@@ -12,7 +12,7 @@ You can find a finished live example <a href="https://devmountain.github.io/them
 
 * `fork` and `clone` this repository.
 * `cd` into the project directory.
-* Run `npm install` in your terminal.
+* Run `npm install`.
 * Run `npm start` after `npm install` has finished.
 
 ## Step 1
