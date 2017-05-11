@@ -14,13 +14,11 @@ export default class ColorChanger extends Component {
 
   render() {
     return (
-      <div>
-        <select className="dropDownContainer" onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
-          <option value="black"> Black </option>
-          <option value="blue"> Blue </option>
-          <option value="green"> Green </option>
-        </select>
-      </div>
+      <select className="dropDownContainer" onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
+        <option value="black"> Black </option>
+        <option value="blue"> Blue </option>
+        <option value="green"> Green </option>
+      </select>
     )
   }
 }
