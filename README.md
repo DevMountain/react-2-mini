@@ -446,92 +446,11 @@ render() {
 
 </details>
 
+<br />
+
+<img src="https://github.com/DevMountain/theme-changer/blob/solution/readme/1g.gif" />
+
 ## Step 6
-
-### Summary 
-
-In this step, we will update the `select` element in `src/App.js` to use an `onChange` prop to update the value of `allowEdit` on state.
-
-### Instructions
-
-* Open `src/App.js`.
-* Locate the `select` element:
-  * Add an `onChange` prop:
-    * The `onChange` should use an arrow function to capture the `event`.
-    * Inside the arrow function call the `updateStatus` method with the value of the target from the `event`.
-
-### Solution
-
-<details>
-
-<summary> <code> src/App.js </code> </summary>
-
-```jsx
-import React, { Component } from 'react';
-import './App.css';
-
-// Components
-import ColorChanger from './components/ColorChanger';
-import SizeChanger from './components/SizeChanger';
-import FamilyChanger from './components/FamilyChanger';
-import TextContainer from './components/TextContainer';
-
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      fontColor: 'black',
-      fontSize: 12,
-      fontFamily: 'monospace',
-      allowEdit: 'true'
-    };
-
-    this.updateColor = this.updateColor.bind(this);
-    this.updateSize = this.updateSize.bind(this);
-    this.updateFamily = this.updateFamily.bind(this);
-  }
-
-  updateColor(val) {
-    this.setState({ fontColor: val });
-  }
-
-  updateSize(val) {
-    this.setState({ fontSize: val });
-  }
-
-  updateFamily(val) {
-    this.setState({ fontFamily: val });
-  }
-
-  updateStatus(val) {
-    this.setState({ allowEdit: val })
-  }
-
-  render() {
-    return (
-      <div>
-        <p> Editable </p>
-        <select onChange={ (e) => this.updateStatus(e.target.value) }>
-          <option value="true"> Allow Edit </option>
-          <option value="false"> Disable Edit </option>
-        </select>
-        <div>
-          <ColorChanger update={ this.updateColor } />
-          <SizeChanger update={ this.updateSize } />
-          <FamilyChanger update={ this.updateFamily } />
-        </div>
-        { /* Render TextContainer */ }
-      </div>
-    )
-  }
-}
-
-export default App;
-```
-
-</details>
-
-## Step 7
 
 ### Summary
 
