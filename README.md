@@ -6,7 +6,7 @@ In this project we will create an application that can change the theme of a par
 
 You can find a finished live example <a href="https://devmountain.github.io/theme-changer/">here</a>.
 
-<img src="" />
+<img src="https://github.com/DevMountain/theme-changer/blob/solution/readme/1.png" />
 
 ## Setup
 
