@@ -459,7 +459,7 @@ At first glance it seems everything is working fine in our application, however 
 ### Instructions
 
 * Open `ColorChanger.js`, `FamilyChanger.js`, and `SizeChanger.js` from `src/components/`.
-* Add a `componentWillReceiveProps` method underneath the `constructor` method in all three files:
+* Add a `componentWillReceiveProps` method underneath the `constructor` method where it says `// componentWillReceiveProps` in all three files:
   * This method should take in a parameter called `props`.
   * This method should use `setState` to update the value of `allowEdit` on state to the value of `allowEdit` on `props`.
 
@@ -475,7 +475,7 @@ import React, { Component } from 'react';
 export default class ColorChanger extends Component {
   constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       allowEdit: this.props.allowEdit
     };
   }
@@ -486,14 +486,11 @@ export default class ColorChanger extends Component {
 
   render() {
     return (
-      <div>
-        <p> Font Color </p>
-        <select onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
-          <option value="black"> Black </option>
-          <option value="blue"> Blue </option>
-          <option value="green"> Green </option>
-        </select>
-      </div>
+      <select className="dropDownContainer" onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
+        <option value="black"> Black </option>
+        <option value="blue"> Blue </option>
+        <option value="green"> Green </option>
+      </select>
     )
   }
 }
@@ -509,9 +506,9 @@ export default class ColorChanger extends Component {
 import React, { Component } from 'react';
 
 export default class FamilyChanger extends Component {
- constructor(props) {
+  constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       allowEdit: this.props.allowEdit
     };
   }
@@ -522,14 +519,11 @@ export default class FamilyChanger extends Component {
 
   render() {
     return (
-      <div>
-        <p> Font Family </p>
-        <select onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
-          <option value="monospace"> Monospace </option>
-          <option value="arial"> Arial </option>
-          <option value="courier"> Courier </option>
-        </select>
-      </div>
+      <select className="dropDownContainer" onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
+        <option value="monospace"> Monospace </option>
+        <option value="arial"> Arial </option>
+        <option value="courier"> Courier </option>
+      </select>
     )
   }
 }
@@ -547,7 +541,7 @@ import React, { Component } from 'react';
 export default class SizeChanger extends Component {
   constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       allowEdit: this.props.allowEdit
     };
   }
@@ -558,20 +552,21 @@ export default class SizeChanger extends Component {
 
   render() {
     return (
-      <div>
-        <p> Font Size </p>
-        <select onChange={ (e) => this.props.update(parseInt(e.target.value, 10)) } disabled={ this.state.allowEdit === "false" }>
-          <option value="12"> 12 </option>
-          <option value="13"> 13 </option>
-          <option value="14"> 14 </option>
-        </select>
-      </div>
+      <select className="dropDownContainer" onChange={ (e) => this.props.update( parseInt(e.target.value) ) } disabled={ this.state.allowEdit === "false" }>
+        <option value="12"> 12 </option>
+        <option value="13"> 13 </option>
+        <option value="14"> 14 </option>
+      </select>
     )
   }
 }
 ```
 
 </details>
+
+<br />
+
+<img src="https://github.com/DevMountain/theme-changer/blob/solution/readme/2g.gif" />
 
 ## Contributions
 
