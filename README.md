@@ -268,13 +268,13 @@ In this step, we will `render` our imported components in `App.js`.
   * Add a prop called `update` that is equal to the `updateEditStatus` method.
 * Render the `ColorChanger` component where it says `{ /* Render ColorChange */ }`:
   * Add a prop called `update` that is equal to the `updateColor` method.
-  * Add a prop called `allowEdit` that is eqaul to the value of `allowEdit` on state.
+  * Add a prop called `allowEdit` that is equal to the value of `allowEdit` on state.
 * Render the `SizeChanger` component where it says `{ /* Render SizeChanger */ }`:
   * Add a prop called `update` that is equal to the `updateSize` method.
-  * Add a prop called `allowEdit` that is eqaul to the value of `allowEdit` on state.
+  * Add a prop called `allowEdit` that is equal to the value of `allowEdit` on state.
 * Render the `FamilyChanger` component where it says `{ /* Render FamilyChanger */ }`:
   * Add a prop called `update` that is equal to the `updateFamily` method.
-  * Add a prop called `allowEdit` that is eqaul to the value of `allowEdit` on state.
+  * Add a prop called `allowEdit` that is equal to the value of `allowEdit` on state.
 * Render the `TextContainer` component where it says `{ /* Render TextContainer */ }`:
   * Add a prop called `fontColor` that equals `fontColor` on state.
   * Add a prop called `fontSize` that equals `fontSize` on state.
