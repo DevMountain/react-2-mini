@@ -95,7 +95,7 @@ export default App;
 
 ### Summary
 
-In this step, we will create class methods in `src/App.js` to update `fontColor`, `fontSize`, `fontFamily`, and `allowEdit` on state. 
+In this step, we will create class methods in `src/App.js` to update `fontColor`, `fontSize`, `fontFamily`, and `allowEdit` on state.
 
 ### Instructions
 
@@ -178,7 +178,7 @@ export default App;
 
 ### Summary
 
-In this step, we will bind `this` to our methods in the `constructor` method in `App.js`. We'll only need to bind `this` on the `updateColor`, `updateSize`, and `updateFamily` methods.
+In this step, we will bind `this` to our methods in the `constructor` method in `App.js`. We'll need to bind `this` on the `updateColor`, `updateSize`, `updateFamily`, and `updateEditStatus` methods.
 
 ### Instructions
 
@@ -338,7 +338,7 @@ class App extends Component {
           <FamilyChanger update={ this.updateFamily } allowEdit={ this.state.allowEdit } />
         </div>
         <div className="textArea">
-          <TextContainer 
+          <TextContainer
             fontColor={ this.state.fontColor }
             fontSize={ this.state.fontSize }
             fontFamily={ this.state.fontFamily } />
@@ -367,9 +367,9 @@ In this step, we will update our `select` elements in the `EditToggle`, `ColorCh
 
 * Open `EditToggle`, `ColorChanger.js`, `FamilyChanger.js`, and `SizeChanger.js` from `src/components/`.
 * Locate the `select` tag, in all four files, and add an `onChange` prop:
-  * The `onChange` should use an arrow function to capture the `event`. 
+  * The `onChange` should use an arrow function to capture the `event`.
   * Inside the arrow function call the `update` prop with the value of the target from the `event`.
-  * Parse Int the value of the target when in `SizeChanger.js`. 
+  * Parse Int the value of the target when in `SizeChanger.js`.
 * Locate the `select` tag, in `ColorChanger`, `FamilyChanger`, and `SizeChanger`, and add a `disabled` prop:
   * The `select` element should be `disabled` if `allowEdit` on <b>state</b> is equal to `"false"`.
 
