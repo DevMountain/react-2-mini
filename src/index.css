@@ -4,16 +4,17 @@ body {
   font-family: sans-serif;
   background-color: #f2f2f2;
   min-width: 985px;
+  box-sizing: border-box;
 }
 
 /*Containers*/
 .headerBar {
 	width: 100%;
-	height: 56px;
 	background-color: #ffffff;
 	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
+  padding: 20px;
 }
 
 .ml0 {
@@ -38,12 +39,11 @@ body {
 }
 
 select {
+  margin: 0 8px;
 	width: 220.3px;
 	height: 48px;
 	border-radius: 2px;
 	background-color: #ffffff;
-  margin-top: 20px;
-  margin-left: 10px;
 	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.23);
   font-size: 16px;
 }
