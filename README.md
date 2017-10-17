@@ -29,9 +29,9 @@ In this step, we will create the initial state for `src/App.js`. On this state o
 * Create a `constructor` method where it says `// constructor`:
   * This method should call `super()`.
   * This method should create an initial state object with the following properties:
-    * fontColor: 'black'
+    * fontColor: 'black',
     * fontSize: 12,
-    * fontFamily: 'monospace'
+    * fontFamily: 'monospace',
     * allowEdit: 'true'
 
 ### Solution
@@ -178,7 +178,7 @@ export default App;
 
 ### Summary
 
-In this step, we will bind `this` to our methods in the `constructor` method in `App.js`. We'll only need to bind `this` on the `updateColor`, `updateSize`, and `updateFamily` methods.
+In this step, we will bind `this` to our methods in the `constructor` method in `App.js`. We'll need to bind `this` on the `updateEditStatus`, `updateColor`, `updateSize`, and `updateFamily` methods.
 
 ### Instructions
 
