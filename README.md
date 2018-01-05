@@ -4,9 +4,11 @@
 
 In this project we will create an application that can change the theme of a paragraph real-time using elements on the front-end. We will also create a switch that can enable and disable the ability to change the theme of the paragraph. In the process of creating this project, we will cover how to use `this`, `bind`, `state`, `props`, and `componentWillReceiveProps`.
 
-You can find a finished live example <a href="https://devmountain.github.io/theme-changer/">here</a>.
+# Live Example
 
-<img src="https://github.com/DevMountain/theme-changer/blob/solution/readme/1.png" />
+<a href="https://devmountain.github.io/react-2-mini/">Click Me!</a>.
+
+<img src="https://github.com/DevMountain/react-2-mini/blob/solution/readme/1.png" />
 
 ## Setup
 
@@ -15,7 +17,7 @@ You can find a finished live example <a href="https://devmountain.github.io/them
 * Run `npm install`.
 * Run `npm start` after `npm install` has finished.
 
-<img src="https://github.com/DevMountain/theme-changer/blob/solution/readme/2.png" />
+<img src="https://github.com/DevMountain/react-2-mini/blob/solution/readme/2.png" />
 
 ## Step 1
 
@@ -355,7 +357,7 @@ export default App;
 
 <br />
 
-<img src="https://github.com/DevMountain/theme-changer/blob/solution/readme/3.png" />
+<img src="https://github.com/DevMountain/react-2-mini/blob/solution/readme/3.png" />
 
 ## Step 5
 
@@ -448,7 +450,7 @@ render() {
 
 <br />
 
-<img src="https://github.com/DevMountain/theme-changer/blob/solution/readme/1g.gif" />
+<img src="https://github.com/DevMountain/react-2-mini/blob/solution/readme/1g.gif" />
 
 ## Step 6
 
@@ -566,7 +568,7 @@ export default class SizeChanger extends Component {
 
 <br />
 
-<img src="https://github.com/DevMountain/theme-changer/blob/solution/readme/2g.gif" />
+<img src="https://github.com/DevMountain/react-2-mini/blob/solution/readme/2g.gif" />
 
 ## Contributions
 
