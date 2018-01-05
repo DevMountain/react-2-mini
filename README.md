@@ -6,7 +6,7 @@ In this project we will create an application that can change the theme of a par
 
 # Live Example
 
-<a href="https://devmountain.github.io/react-2-mini/">Click Me!</a>.
+<a href="https://devmountain.github.io/react-2-mini/">Click Me!</a>
 
 <img src="https://github.com/DevMountain/react-2-mini/blob/solution/readme/1.png" />
 
