@@ -13,7 +13,7 @@ class App extends Component {
       fontColor: 'black',
       fontSize: 12,
       fontFamily: 'monospace',
-      allowEdit: 'true'
+      allowEdit: true
     };
 
     this.updateEditStatus = this.updateEditStatus.bind( this );
