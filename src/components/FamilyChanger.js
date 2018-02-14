@@ -1,13 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class FamilyChanger extends Component {
-  render() {
-    return (
-      <select className="dropDownContainer" onChange={ (e) => this.props.update(e.target.value) } disabled={ !this.props.allowEdit }>
-        <option value="monospace"> Monospace </option>
-        <option value="arial"> Arial </option>
-        <option value="verdana"> Verdana </option>
-      </select>
-    )
-  }
+const FamilyChanger = (props) => {
+  return (
+    <select className="dropDownContainer" onChange={ (e) => props.update(e.target.value) } disabled={ !props.allowEdit }>
+      <option value="monospace"> Monospace </option>
+      <option value="arial"> Arial </option>
+      <option value="verdana"> Verdana </option>
+    </select>
+  )
 }
+
+FamilyChanger.propTypes = {
+  update: PropTypes.func.isRequired,
+  allowEdit: PropTypes.bool.isRequired
+};
+
+export default FamilyChanger;

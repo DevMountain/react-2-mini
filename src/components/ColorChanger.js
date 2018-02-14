@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class ColorChanger extends Component {
+class ColorChanger extends Component {
   render() {
     return (
       <select className="dropDownContainer" onChange={ (e) => this.props.update(e.target.value) } disabled={ !this.props.allowEdit }>
@@ -11,3 +12,10 @@ export default class ColorChanger extends Component {
     )
   }
 }
+
+ColorChanger.propTypes = {
+  update: PropTypes.func.isRequired,
+  allowEdit: PropTypes.bool.isRequired
+};
+
+export default ColorChanger;
