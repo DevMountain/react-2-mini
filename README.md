@@ -487,7 +487,7 @@ In this step, we will update our `select` elements in the `EditToggle`, `ColorCh
 * Open `EditToggle`, `ColorChanger.js`, `FamilyChanger.js`, and `SizeChanger.js` from `src/components/`.
 * Locate the `select` tag, in all four files, and add an `onChange` prop:
   * The `onChange` should use an arrow function to capture the `event`. 
-  * Inside the arrow function call the `update` prop with the value of the target from the `event`.
+  * Inside the arrow function call the `update` prop. As the only argument, pass a strict equality comparison between the event's target's value and `true`.
   * Coerce the value of the target when in `SizeChanger.js` from a string to an integer using `parseInt`.
 * Locate the `select` tag, in `ColorChanger`, `FamilyChanger`, and `SizeChanger`, and add a `disabled` prop:
   * The `select` element should be `disabled` if the `allowEdit` prop is falsy.
@@ -501,7 +501,7 @@ In this step, we will update our `select` elements in the `EditToggle`, `ColorCh
 ```jsx
 render() {
   return (
-    <select className="dropDownContainer ml0" onChange={ (e) => this.props.update(e.target.value) }>
+    <select className="dropDownContainer ml0" onChange={ (e) => this.props.update(e.target.value === 'true') }>
       <option value="true"> Allow Edit </option>
       <option value="false"> Disable Edit </option>
     </select>
