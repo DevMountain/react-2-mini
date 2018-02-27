@@ -2,7 +2,7 @@
 
 # Project Summary
 
-In this project we will create an application that can change the theme of a paragraph real-time using elements on the front-end. We will also create a switch that can enable and disable the ability to change the theme of the paragraph. In the process of creating this project, we will cover how to use `this`, `bind`, `state`, `props`, and `componentWillReceiveProps`.
+In this project we will create an application that can change the theme of a paragraph in real-time using elements on the front-end. We will also create a switch that can enable and disable the ability to change the theme of the paragraph. In the process of creating this project, we will cover how to use `this`, `bind`, `state`, `props`, propTypes, and Stateless Functional Coponents (SFCs).
 
 # Live Example
 
@@ -34,7 +34,7 @@ In this step, we will create the initial state for `src/App.js`. On this state o
     * fontColor: 'black',
     * fontSize: 12,
     * fontFamily: 'monospace',
-    * allowEdit: 'true'
+    * allowEdit: true
 
 ### Solution
 
@@ -59,7 +59,7 @@ class App extends Component {
       fontColor: 'black',
       fontSize: 12,
       fontFamily: 'monospace',
-      allowEdit: 'true'
+      allowEdit: true
     };
   }
 
@@ -134,7 +134,7 @@ class App extends Component {
       fontColor: 'black',
       fontSize: 12,
       fontFamily: 'monospace',
-      allowEdit: 'true'
+      allowEdit: true
     };
   }
 
@@ -210,7 +210,7 @@ class App extends Component {
       fontColor: 'black',
       fontSize: 12,
       fontFamily: 'monospace',
-      allowEdit: 'true'
+      allowEdit: true
     };
 
     this.updateColor = this.updateColor.bind( this );
@@ -305,7 +305,7 @@ class App extends Component {
       fontColor: 'black',
       fontSize: 12,
       fontFamily: 'monospace',
-      allowEdit: 'true'
+      allowEdit: true
     };
 
     this.updateColor = this.updateColor.bind( this );
@@ -363,7 +363,124 @@ export default App;
 
 ### Summary
 
-In this step, we will update our `select` elements in the `EditToggle`, `ColorChanger`, `FamilyChanger`, and `SizeChanger` components to use an `onChange` that calls the `update` prop with the value of the `select` element. We will also disable the `select` element if the value of `allowEdit` is `"false"`.
+In this step, you'll add prop types to a component.
+
+### Instructions
+
+* Open `ColorChanger.js` from `src/components/`.
+* Import the `prop-types` library as `PropTypes`.
+* Remove the `export default` from the `ColorChanger` class definition.
+* Add the `propTypes` property to the `ColorChanger` class.
+  * Add an `update` prop type as a required function.
+  * Add an `allowEdit` prop type as a required boolean.
+* Export as default the `ColorChanger` class on its own line.
+
+<details>
+
+<summary> <code> src/components/ColorChanger.js </code> </summary>
+
+```jsx
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+class ColorChanger extends Component {
+  render() {
+    return (
+      <select className="dropDownContainer">
+        <option value="black"> Black </option>
+        <option value="blue"> Blue </option>
+        <option value="green"> Green </option>
+      </select>
+    )
+  }
+}
+
+ColorChanger.propTypes = {
+  update: PropTypes.func.isRequired,
+  allowEdit: PropTypes.bool.isRequired
+};
+
+export default ColorChanger;
+```
+
+</details>
+
+## Step 6
+
+### Summary
+
+In this step, you'll convert a class component to a stateless functional component (SFC).
+
+### Instructions
+
+* Open `SizeChanger.js` from `src/components/`.
+* Convert the class component to a stateless functional component.
+  * Use a function declaration. Do not use an arrow function.
+
+<details>
+
+<summary> <code> src/components/SizeChanger.js </code> </summary>
+
+```jsx
+function SizeChanger(props) {
+  return (
+    <select className="dropDownContainer">
+      <option value="12"> 12 </option>
+      <option value="13"> 13 </option>
+      <option value="14"> 14 </option>
+    </select>
+  )
+}
+```
+
+</details>
+
+## Step 7
+
+### Summary
+
+In this step, you'll create a stateless functional component from scratch.
+
+### Instructions
+
+* Create `FamilyChanger.js` in `src/components/`.
+* Import `react` and `prop-types`.
+* Create a stateless functional component.
+  * Use an arrow function. Do not use a function declaration.
+  * Similar to the ColorChanger and SizeChanger components, return a `select` HTML element. The option values are `monospace`, `arial`, and `verdana`.
+* Add prop types for `update` and `allowEdit`.
+* Export as default the component.
+
+<details>
+
+<summary> <code> src/components/FamilyChanger.js </code> </summary>
+
+```jsx
+const FamilyChanger = (props) => {
+  return (
+    <select className="dropDownContainer">
+      <option value="monospace"> Monospace </option>
+      <option value="arial"> Arial </option>
+      <option value="verdana"> Verdana </option>
+    </select>
+  )
+}
+
+FamilyChanger.propTypes = {
+  update: PropTypes.func.isRequired,
+  allowEdit: PropTypes.bool.isRequired
+};
+
+export default FamilyChanger;
+```
+
+</details>
+
+## Step 8
+
+### Summary
+
+In this step, we will update our `select` elements in the `EditToggle`, `ColorChanger`, `FamilyChanger`, and `SizeChanger` components to use an `onChange` that calls the `update` prop with the value of the `select` element. We will also disable the `select` element if the value of `allowEdit` is falsy.
 
 ### Instructions
 
@@ -371,9 +488,9 @@ In this step, we will update our `select` elements in the `EditToggle`, `ColorCh
 * Locate the `select` tag, in all four files, and add an `onChange` prop:
   * The `onChange` should use an arrow function to capture the `event`. 
   * Inside the arrow function call the `update` prop with the value of the target from the `event`.
-  * Parse Int the value of the target when in `SizeChanger.js`. 
+  * Coerce the value of the target when in `SizeChanger.js` from a string to an integer using `parseInt`.
 * Locate the `select` tag, in `ColorChanger`, `FamilyChanger`, and `SizeChanger`, and add a `disabled` prop:
-  * The `select` element should be `disabled` if `allowEdit` on <b>state</b> is equal to `"false"`.
+  * The `select` element should be `disabled` if the `allowEdit` prop is falsy.
 
 ### Solution
 
@@ -401,7 +518,7 @@ render() {
 ```jsx
 render() {
   return (
-    <select className="dropDownContainer" onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
+    <select className="dropDownContainer" onChange={ (e) => this.props.update(e.target.value) } disabled={ !this.state.allowEdit }>
       <option value="black"> Black </option>
       <option value="blue"> Blue </option>
       <option value="green"> Green </option>
@@ -417,12 +534,12 @@ render() {
 <summary> <code> src/components/FamilyChanger.js </code> </summary>
 
 ```jsx
-render() {
+const FamilyChanger = (props) => {
   return (
-    <select className="dropDownContainer" onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
+    <select className="dropDownContainer" onChange={ (e) => props.update(e.target.value) } disabled={ !props.allowEdit }>
       <option value="monospace"> Monospace </option>
       <option value="arial"> Arial </option>
-      <option value="courier"> Courier </option>
+      <option value="verdana"> Verdana </option>
     </select>
   )
 }
@@ -435,9 +552,9 @@ render() {
 <summary> <code> src/components/SizeChanger.js </code> </summary>
 
 ```jsx
-render() {
+function SizeChanger(props) {
   return (
-    <select className="dropDownContainer" onChange={ (e) => this.props.update( parseInt(e.target.value) ) } disabled={ this.state.allowEdit === "false" }>
+    <select className="dropDownContainer" onChange={ (e) => props.update(parseInt(e.target.value, 10)) } disabled={ !props.allowEdit }>
       <option value="12"> 12 </option>
       <option value="13"> 13 </option>
       <option value="14"> 14 </option>
@@ -451,120 +568,6 @@ render() {
 <br />
 
 <img src="https://github.com/DevMountain/react-2-mini/blob/solution/readme/1g.gif" />
-
-## Step 6
-
-### Summary
-
-At first glance it seems everything is working fine in our application, however when we change the value of `allowEdit` our child components are not updating with the new value. In this step, we will fix this bug using a react life cycle method called `componentWillReceiveProps`.
-
-### Instructions
-
-* Open `ColorChanger.js`, `FamilyChanger.js`, and `SizeChanger.js` from `src/components/`.
-* Add a `componentWillReceiveProps` method underneath the `constructor` method where it says `// componentWillReceiveProps` in all three files:
-  * This method should take in a parameter called `props`.
-  * This method should use `setState` to update the value of `allowEdit` on state to the value of `allowEdit` on `props`.
-
-### Solution
-
-<details>
-
-<summary> <code> src/components/ColorChanger.js </code> </summary>
-
-```jsx
-import React, { Component } from 'react';
-
-export default class ColorChanger extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      allowEdit: this.props.allowEdit
-    };
-  }
-
-  componentWillReceiveProps(props) {
-    this.setState({ allowEdit: props.allowEdit });
-  }
-
-  render() {
-    return (
-      <select className="dropDownContainer" onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
-        <option value="black"> Black </option>
-        <option value="blue"> Blue </option>
-        <option value="green"> Green </option>
-      </select>
-    )
-  }
-}
-```
-
-</details>
-
-<details>
-
-<summary> <code> src/components/FamilyChanger.js </code> </summary>
-
-```jsx
-import React, { Component } from 'react';
-
-export default class FamilyChanger extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      allowEdit: this.props.allowEdit
-    };
-  }
-
-  componentWillReceiveProps(props) {
-    this.setState({ allowEdit: props.allowEdit });
-  }
-
-  render() {
-    return (
-      <select className="dropDownContainer" onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
-        <option value="monospace"> Monospace </option>
-        <option value="arial"> Arial </option>
-        <option value="courier"> Courier </option>
-      </select>
-    )
-  }
-}
-```
-
-</details>
-
-<details>
-
-<summary> <code> src/components/SizeChanger.js </code> </summary>
-
-```jsx
-import React, { Component } from 'react';
-
-export default class SizeChanger extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      allowEdit: this.props.allowEdit
-    };
-  }
-
-  componentWillReceiveProps(props) {
-    this.setState({ allowEdit: props.allowEdit });
-  }
-
-  render() {
-    return (
-      <select className="dropDownContainer" onChange={ (e) => this.props.update( parseInt(e.target.value) ) } disabled={ this.state.allowEdit === "false" }>
-        <option value="12"> 12 </option>
-        <option value="13"> 13 </option>
-        <option value="14"> 14 </option>
-      </select>
-    )
-  }
-}
-```
-
-</details>
 
 <br />
 
