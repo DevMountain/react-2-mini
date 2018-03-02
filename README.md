@@ -443,8 +443,6 @@ return (
 
 <br />
 
-<img src="https://github.com/DevMountain/react-2-mini/blob/solution/readme/1g.gif" />
-
 ## Step 6
 
 ### Summary
