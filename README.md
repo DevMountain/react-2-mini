@@ -2,7 +2,7 @@
 
 # Project Summary
 
-In this project we will create an application that can change the theme of a paragraph real-time using elements on the front-end. We will also create a switch that can enable and disable the ability to change the theme of the paragraph. In the process of creating this project, we will cover how to use `this`, `bind`, `state`, `props`, and `componentWillReceiveProps`.
+In this project we will create an application that can change the theme of a paragraph real-time using elements on the front-end. We will also create a switch that can enable and disable the ability to change the theme of the paragraph. In the process of creating this project, we will cover how to use `this`, `bind`, `state`, and `props`.
 
 # Live Example
 
@@ -368,12 +368,13 @@ In this step, we will update our `select` elements in the `EditToggle`, `ColorCh
 ### Instructions
 
 * Open `EditToggle`, `ColorChanger.js`, `FamilyChanger.js`, and `SizeChanger.js` from `src/components/`.
+* Add `props` as a parameter to the component's function.
 * Locate the `select` tag, in all four files, and add an `onChange` prop:
   * The `onChange` should use an arrow function to capture the `event`. 
   * Inside the arrow function call the `update` prop with the value of the target from the `event`.
   * Parse Int the value of the target when in `SizeChanger.js`. 
 * Locate the `select` tag, in `ColorChanger`, `FamilyChanger`, and `SizeChanger`, and add a `disabled` prop:
-  * The `select` element should be `disabled` if `allowEdit` on <b>state</b> is equal to `"false"`.
+  * The `select` element should be `disabled` if `allowEdit` from <b>props</b> is equal to `"false"`.
 
 ### Solution
 
@@ -382,14 +383,12 @@ In this step, we will update our `select` elements in the `EditToggle`, `ColorCh
 <summary> <code> src/components/EditToggle.js </code> </summary>
 
 ```jsx
-render() {
-  return (
-    <select className="dropDownContainer ml0" onChange={ (e) => this.props.update(e.target.value) }>
-      <option value="true"> Allow Edit </option>
-      <option value="false"> Disable Edit </option>
-    </select>
-  )
-}
+return (
+  <select className="dropDownContainer ml0" onChange={ (e) => props.update(e.target.value) }>
+    <option value="true"> Allow Edit </option>
+    <option value="false"> Disable Edit </option>
+  </select>
+)
 ```
 
 </details>
@@ -399,15 +398,13 @@ render() {
 <summary> <code> src/components/ColorChanger.js </code> </summary>
 
 ```jsx
-render() {
-  return (
-    <select className="dropDownContainer" onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
-      <option value="black"> Black </option>
-      <option value="blue"> Blue </option>
-      <option value="green"> Green </option>
-    </select>
-  )
-}
+return (
+  <select className="dropDownContainer" onChange={ (e) => props.update(e.target.value) } disabled={ props.allowEdit === "false" }>
+    <option value="black"> Black </option>
+    <option value="blue"> Blue </option>
+    <option value="green"> Green </option>
+  </select>
+)
 ```
 
 </details>
@@ -417,15 +414,13 @@ render() {
 <summary> <code> src/components/FamilyChanger.js </code> </summary>
 
 ```jsx
-render() {
-  return (
-    <select className="dropDownContainer" onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
-      <option value="monospace"> Monospace </option>
-      <option value="arial"> Arial </option>
-      <option value="courier"> Courier </option>
-    </select>
-  )
-}
+return (
+  <select className="dropDownContainer" onChange={ (e) => props.update(e.target.value) } disabled={ props.allowEdit === "false" }>
+    <option value="monospace"> Monospace </option>
+    <option value="arial"> Arial </option>
+    <option value="courier"> Courier </option>
+  </select>
+)
 ```
 
 </details>
@@ -435,35 +430,32 @@ render() {
 <summary> <code> src/components/SizeChanger.js </code> </summary>
 
 ```jsx
-render() {
-  return (
-    <select className="dropDownContainer" onChange={ (e) => this.props.update( parseInt(e.target.value) ) } disabled={ this.state.allowEdit === "false" }>
-      <option value="12"> 12 </option>
-      <option value="13"> 13 </option>
-      <option value="14"> 14 </option>
-    </select>
-  )
-}
+return (
+  <select className="dropDownContainer" onChange={ (e) => props.update( parseInt(e.target.value) ) } disabled={ props.allowEdit === "false" }>
+    <option value="12"> 12 </option>
+    <option value="13"> 13 </option>
+    <option value="14"> 14 </option>
+  </select>
+)
 ```
 
 </details>
 
 <br />
 
-<img src="https://github.com/DevMountain/react-2-mini/blob/solution/readme/1g.gif" />
-
 ## Step 6
 
 ### Summary
 
-At first glance it seems everything is working fine in our application, however when we change the value of `allowEdit` our child components are not updating with the new value. In this step, we will fix this bug using a react life cycle method called `componentWillReceiveProps`.
+Now we have everything set up to be able to edit the look of our text. Our last step is to connect our styling in the `TextContainer` components to the props being passed to it so they will reflect the changes we make. 
 
 ### Instructions
 
-* Open `ColorChanger.js`, `FamilyChanger.js`, and `SizeChanger.js` from `src/components/`.
-* Add a `componentWillReceiveProps` method underneath the `constructor` method where it says `// componentWillReceiveProps` in all three files:
-  * This method should take in a parameter called `props`.
-  * This method should use `setState` to update the value of `allowEdit` on state to the value of `allowEdit` on `props`.
+* Open `TextContainer.js` from `src/components/`.
+* Bind the `updateText` method to `this` in the `constructor` method.
+* In the `textarea` tag there is a `style` prop, this is where we need to add the styling that's being passed to this component through props. 
+  * Uncomment the `style` prop.
+  * Set `fontFamily`, `fontSize` and `color` equal to the appropriate props values.
 
 ### Solution
 
@@ -474,91 +466,33 @@ At first glance it seems everything is working fine in our application, however 
 ```jsx
 import React, { Component } from 'react';
 
-export default class ColorChanger extends Component {
-  constructor(props) {
-    super(props);
+export default class TextContainer extends Component {
+  constructor() {
+    super()
     this.state = {
-      allowEdit: this.props.allowEdit
-    };
+      text: ''
+    }
+    this.updateText = this.updateText.bind(this)
   }
 
-  componentWillReceiveProps(props) {
-    this.setState({ allowEdit: props.allowEdit });
+  updateText(e) {
+    this.setState({
+      text: e.target.value
+    })
   }
 
   render() {
     return (
-      <select className="dropDownContainer" onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
-        <option value="black"> Black </option>
-        <option value="blue"> Blue </option>
-        <option value="green"> Green </option>
-      </select>
-    )
-  }
-}
-```
-
-</details>
-
-<details>
-
-<summary> <code> src/components/FamilyChanger.js </code> </summary>
-
-```jsx
-import React, { Component } from 'react';
-
-export default class FamilyChanger extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      allowEdit: this.props.allowEdit
-    };
-  }
-
-  componentWillReceiveProps(props) {
-    this.setState({ allowEdit: props.allowEdit });
-  }
-
-  render() {
-    return (
-      <select className="dropDownContainer" onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
-        <option value="monospace"> Monospace </option>
-        <option value="arial"> Arial </option>
-        <option value="courier"> Courier </option>
-      </select>
-    )
-  }
-}
-```
-
-</details>
-
-<details>
-
-<summary> <code> src/components/SizeChanger.js </code> </summary>
-
-```jsx
-import React, { Component } from 'react';
-
-export default class SizeChanger extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      allowEdit: this.props.allowEdit
-    };
-  }
-
-  componentWillReceiveProps(props) {
-    this.setState({ allowEdit: props.allowEdit });
-  }
-
-  render() {
-    return (
-      <select className="dropDownContainer" onChange={ (e) => this.props.update( parseInt(e.target.value) ) } disabled={ this.state.allowEdit === "false" }>
-        <option value="12"> 12 </option>
-        <option value="13"> 13 </option>
-        <option value="14"> 14 </option>
-      </select>
+      <div className="textContainer">
+        <textarea 
+          style={ { color: this.props.fontColor, fontFamily: this.props.fontFamily, fontSize: this.props.fontSize } }
+          onChange={this.updateText}
+          value={this.state.text} 
+          placeholder='This is where your text will be!'
+          cols="90"
+          rows="30">
+        </textarea>
+      </div>
     )
   }
 }
