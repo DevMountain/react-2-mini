@@ -461,7 +461,7 @@ Now we have everything set up to be able to edit the look of our text. Our last 
 
 <details>
 
-<summary> <code> src/components/ColorChanger.js </code> </summary>
+<summary> <code> src/components/TextContainer.js </code> </summary>
 
 ```jsx
 import React, { Component } from 'react';
