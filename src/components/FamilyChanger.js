@@ -5,7 +5,7 @@ export default function FamilyChanger() {
     <select className="dropDownContainer">
       <option value="monospace"> Monospace </option>
       <option value="arial"> Arial </option>
-      <option value="courier"> Courier </option>
+      <option value="times new roman"> Times New Roman </option>
     </select>
   )
 }
