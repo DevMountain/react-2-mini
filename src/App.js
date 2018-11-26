@@ -13,13 +13,13 @@ class App extends Component {
       fontColor: 'black',
       fontSize: 12,
       fontFamily: 'monospace',
-      allowEdit: 'true'
+      allowEdit: true
     };
 
-    this.updateEditStatus = this.updateEditStatus.bind( this );
-    this.updateColor = this.updateColor.bind( this );
-    this.updateSize = this.updateSize.bind( this );
-    this.updateFamily = this.updateFamily.bind( this );
+    this.updateColor = this.updateColor.bind(this);
+    this.updateSize = this.updateSize.bind(this);
+    this.updateFamily = this.updateFamily.bind(this);
+    this.updateEditStatus = this.updateEditStatus.bind(this);
   }
 
   updateColor(val) {
@@ -42,13 +42,29 @@ class App extends Component {
     return (
       <div>
         <div className="headerBar">
-          <EditToggle update={ this.updateEditStatus } />
-          <ColorChanger update={ this.updateColor } allowEdit={ this.state.allowEdit }/>
-          <SizeChanger update={ this.updateSize } allowEdit={ this.state.allowEdit } />
-          <FamilyChanger update={ this.updateFamily } allowEdit={ this.state.allowEdit } />
+          <ColorChanger
+            fontColor={this.state.fontColor}
+            update={this.updateColor}
+            allowEdit={this.state.allowEdit}
+          />
+          <SizeChanger
+            fontSize={this.state.fontSize}
+            update={this.updateSize}
+            allowEdit={this.state.allowEdit}
+          />
+          <FamilyChanger
+            fontFamily={this.state.fontFamily}
+            update={this.updateFamily}
+            allowEdit={this.state.allowEdit}
+          />
+          <EditToggle allowEdit={this.state.allowEdit} update={this.updateEditStatus} />
         </div>
         <div className="textArea">
-          <TextContainer fontColor={ this.state.fontColor } fontSize={ this.state.fontSize } fontFamily={ this.state.fontFamily } />
+          <TextContainer
+            fontColor={this.state.fontColor}
+            fontSize={this.state.fontSize}
+            fontFamily={this.state.fontFamily}
+          />
         </div>
       </div>
     )
