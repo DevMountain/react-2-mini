@@ -34,7 +34,7 @@ In this step, we will create the initial state for `src/App.js`. On this state o
     * fontColor: 'black',
     * fontSize: 12,
     * fontFamily: 'monospace',
-    * allowEdit: 'true'
+    * allowEdit: true
 
 ### Solution
 
@@ -46,11 +46,11 @@ In this step, we will create the initial state for `src/App.js`. On this state o
 import React, { Component } from 'react';
 
 // Components
-import EditToggle from './components/EditToggle';
 import ColorChanger from './components/ColorChanger';
 import SizeChanger from './components/SizeChanger';
 import FamilyChanger from './components/FamilyChanger';
 import TextContainer from './components/TextContainer';
+import EditToggle from './components/EditToggle';
 
 class App extends Component {
   constructor() {
@@ -59,7 +59,7 @@ class App extends Component {
       fontColor: 'black',
       fontSize: 12,
       fontFamily: 'monospace',
-      allowEdit: 'true'
+      allowEdit: true
     };
   }
 
@@ -75,10 +75,10 @@ class App extends Component {
     return (
       <div>
         <div className="headerBar">
-          { /* Render EditToggle */ }
           { /* Render ColorChanger */ }
           { /* Render SizeChanger */ }
           { /* Render FamilyChanger */ }
+          { /* Render EditToggle */ }
         </div>
         <div className="textArea">
           { /* Render TextContainer */ }
@@ -121,11 +121,11 @@ In this step, we will create class methods in `src/App.js` to update `fontColor`
 import React, { Component } from 'react';
 
 // Components
-import EditToggle from './components/EditToggle';
 import ColorChanger from './components/ColorChanger';
 import SizeChanger from './components/SizeChanger';
 import FamilyChanger from './components/FamilyChanger';
 import TextContainer from './components/TextContainer';
+import EditToggle from './components/EditToggle';
 
 class App extends Component {
   constructor() {
@@ -134,7 +134,7 @@ class App extends Component {
       fontColor: 'black',
       fontSize: 12,
       fontFamily: 'monospace',
-      allowEdit: 'true'
+      allowEdit: true
     };
   }
 
@@ -158,10 +158,10 @@ class App extends Component {
     return (
       <div>
         <div className="headerBar">
-          { /* Render EditToggle */ }
           { /* Render ColorChanger */ }
           { /* Render SizeChanger */ }
           { /* Render FamilyChanger */ }
+          { /* Render EditToggle */ }
         </div>
         <div className="textArea">
           { /* Render TextContainer */ }
@@ -180,7 +180,7 @@ export default App;
 
 ### Summary
 
-In this step, we will bind `this` to our methods in the `constructor` method in `App.js`. We'll need to bind `this` on the `updateEditStatus`, `updateColor`, `updateSize`, and `updateFamily` methods.
+In this step, we will bind `this` to our methods in the `constructor` method in `App.js`. We'll need to bind `this` on the `updateColor`, `updateSize`, `updateFamily`, and `updateEditStatus` methods.
 
 ### Instructions
 
@@ -197,11 +197,11 @@ In this step, we will bind `this` to our methods in the `constructor` method in 
 import React, { Component } from 'react';
 
 // Components
-import EditToggle from './components/EditToggle';
 import ColorChanger from './components/ColorChanger';
 import SizeChanger from './components/SizeChanger';
 import FamilyChanger from './components/FamilyChanger';
 import TextContainer from './components/TextContainer';
+import EditToggle from './components/EditToggle';
 
 class App extends Component {
   constructor() {
@@ -210,7 +210,7 @@ class App extends Component {
       fontColor: 'black',
       fontSize: 12,
       fontFamily: 'monospace',
-      allowEdit: 'true'
+      allowEdit: true
     };
 
     this.updateColor = this.updateColor.bind( this );
@@ -239,10 +239,10 @@ class App extends Component {
     return (
       <div>
         <div className="headerBar">
-          { /* Render EditToggle */ }
           { /* Render ColorChanger */ }
           { /* Render SizeChanger */ }
           { /* Render FamilyChanger */ }
+          { /* Render EditToggle */ }
         </div>
         <div className="textArea">
           { /* Render TextContainer */ }
@@ -266,16 +266,20 @@ In this step, we will `render` our imported components in `App.js`.
 ### Instructions
 
 * Open `src/App.js`.
-* Render the `EditToggle` component where it says `{ /* Render EditToggle */ }`:
-  * Add a prop called `update` that is equal to the `updateEditStatus` method.
 * Render the `ColorChanger` component where it says `{ /* Render ColorChange */ }`:
+  * Add a prop called `fontColor` that is equal to the value of the `fontColor` on state.
   * Add a prop called `update` that is equal to the `updateColor` method.
   * Add a prop called `allowEdit` that is equal to the value of `allowEdit` on state.
 * Render the `SizeChanger` component where it says `{ /* Render SizeChanger */ }`:
+  * Add a prop called `fontSize` that is equal to the value of the `fontSize` on state.
   * Add a prop called `update` that is equal to the `updateSize` method.
   * Add a prop called `allowEdit` that is equal to the value of `allowEdit` on state.
 * Render the `FamilyChanger` component where it says `{ /* Render FamilyChanger */ }`:
+  * Add a prop called `fontFamily` that is equal to the value of the `fontFamily` on state.
   * Add a prop called `update` that is equal to the `updateFamily` method.
+  * Add a prop called `allowEdit` that is equal to the value of `allowEdit` on state.
+* Render the `EditToggle` component where it says `{ /* Render EditToggle */ }`:
+  * Add a prop called `update` that is equal to the `updateEditStatus` method.
   * Add a prop called `allowEdit` that is equal to the value of `allowEdit` on state.
 * Render the `TextContainer` component where it says `{ /* Render TextContainer */ }`:
   * Add a prop called `fontColor` that equals `fontColor` on state.
@@ -292,11 +296,11 @@ In this step, we will `render` our imported components in `App.js`.
 import React, { Component } from 'react';
 
 // Components
-import EditToggle from './components/EditToggle';
 import ColorChanger from './components/ColorChanger';
 import SizeChanger from './components/SizeChanger';
 import FamilyChanger from './components/FamilyChanger';
 import TextContainer from './components/TextContainer';
+import EditToggle from './components/EditToggle';
 
 class App extends Component {
   constructor() {
@@ -305,7 +309,7 @@ class App extends Component {
       fontColor: 'black',
       fontSize: 12,
       fontFamily: 'monospace',
-      allowEdit: 'true'
+      allowEdit: true
     };
 
     this.updateColor = this.updateColor.bind( this );
@@ -334,10 +338,22 @@ class App extends Component {
     return (
       <div>
         <div className="headerBar">
-          <EditToggle update={ this.updateEditStatus } />
-          <ColorChanger update={ this.updateColor } allowEdit={ this.state.allowEdit } />
-          <SizeChanger update={ this.updateSize } allowEdit={ this.state.allowEdit } />
-          <FamilyChanger update={ this.updateFamily } allowEdit={ this.state.allowEdit } />
+          <ColorChanger
+            fontColor={this.state.fontColor}
+            update={this.updateColor}
+            allowEdit={this.state.allowEdit}
+          />
+          <SizeChanger
+            fontSize={this.state.fontSize}
+            update={this.updateSize}
+            allowEdit={this.state.allowEdit}
+          />
+          <FamilyChanger
+            fontFamily={this.state.fontFamily}
+            update={this.updateFamily}
+            allowEdit={this.state.allowEdit}
+          />
+          <EditToggle update={ this.updateEditStatus } allowEdit={ this.state.allowEdit } />
         </div>
         <div className="textArea">
           <TextContainer 
@@ -359,39 +375,69 @@ export default App;
 
 <img src="https://github.com/DevMountain/react-2-mini/blob/solution/readme/3.png" />
 
-## Step 5
+## Step 4.5
 
 ### Summary
 
-In this step, we will update our `select` elements in the `EditToggle`, `ColorChanger`, `FamilyChanger`, and `SizeChanger` components to use an `onChange` that calls the `update` prop with the value of the `select` element. We will also disable the `select` element if the value of `allowEdit` is `"false"`.
+In this step, we'll update our `ColorChanger` component to be a stateless functional component, because it doesn't need to be a class component.
 
 ### Instructions
 
-* Open `EditToggle`, `ColorChanger.js`, `FamilyChanger.js`, and `SizeChanger.js` from `src/components/`.
-* Add `props` as a parameter to the component's function.
-* Locate the `select` tag, in all four files, and add an `onChange` prop:
-  * The `onChange` should use an arrow function to capture the `event`. 
-  * Inside the arrow function call the `update` prop with the value of the target from the `event`.
-  * Parse Int the value of the target when in `SizeChanger.js`. 
-* Locate the `select` tag, in `ColorChanger`, `FamilyChanger`, and `SizeChanger`, and add a `disabled` prop:
-  * The `select` element should be `disabled` if `allowEdit` from <b>props</b> is equal to `"false"`.
+* Open `ColorChanger.js` from `src/components/`.
+* Change the component from a class component to a stateless functional component.
+  * Change from using the words `class ColorChanger extends Component` to just `function ColorChanger`.
+  * Remove the import of `{ Component }` from the top `import` line. We are no longer creating a class that extends `Component`.
+  * Remove the `render()` function declaration and its curly braces, but leave the body (the return statement and the JSX) so it becomes the body of the stateless functional compnent.
+  * That's it. We'll make further changes below.
 
 ### Solution
 
 <details>
 
-<summary> <code> src/components/EditToggle.js </code> </summary>
+<summary> <code> src/ColorChanger.js </code> </summary>
 
 ```jsx
-return (
-  <select className="dropDownContainer ml0" onChange={ (e) => props.update(e.target.value) }>
-    <option value="true"> Allow Edit </option>
-    <option value="false"> Disable Edit </option>
-  </select>
-)
+import React from 'react';
+
+export default function ColorChanger() {
+  return (
+    <select className="dropDownContainer">
+      <option value="black">Black</option>
+      <option value="blue">Blue</option>
+      <option value="green">Green</option>
+    </select>
+  )
+}
+
+export default App;
 ```
 
 </details>
+
+## Step 5
+
+### Summary
+
+In this step, we will update our `select` elements in the `ColorChanger`, `FamilyChanger`, `SizeChanger`, and `EditToggle` components to pass a `value` prop to the underlying `select` control, as well as use an `onChange` that calls the `update` prop with the value of the `select` element. We will also disable the `select` element if the value of `allowEdit` isn't true (except in `EditToggle`).
+
+### Instructions
+
+* Open `ColorChanger.js`, `FamilyChanger.js`, `SizeChanger.js`, and `EditToggle.js` from `src/components/`.
+* Add `props` as a parameter to the component's function.
+* Locate the `select` tag, in all four files, and:
+  * Add a `value` prop:
+    * Set the value to the correspdong prop, e.g. `props.fontColor`, etc.
+    * `SizeChanger.js` is special: you'll need to force the number value to a string.
+    * `EditToggle.js` is special: you'll need to force the boolean value to a string.
+  * Add an `onChange` prop:
+    * The `onChange` should use an arrow function to capture the `event`. 
+    * Inside the arrow function call the `update` prop with the value of the target from the `event`.
+    * `SizeChanger.js` is special: you'll need to use the `parseInt()` function to turn the text value (e.g. `"12"`) into a JavaScript number.
+    * `EditToggle.js` is special: for the `update` function, you'll need to compare the select's text value to the string `"true"`.
+* Locate the `select` tag, in `ColorChanger`, `FamilyChanger`, and `SizeChanger`, and add a `disabled` prop:
+  * The `select` element should be `disabled` if `allowEdit` from <b>props</b> is not truthy.
+
+### Solution
 
 <details>
 
@@ -399,10 +445,10 @@ return (
 
 ```jsx
 return (
-  <select className="dropDownContainer" onChange={ (e) => props.update(e.target.value) } disabled={ props.allowEdit === "false" }>
-    <option value="black"> Black </option>
-    <option value="blue"> Blue </option>
-    <option value="green"> Green </option>
+  <select className="dropDownContainer" value={props.fontColor} onChange={e => props.update(e.target.value)} disabled={!props.allowEdit}>
+    <option value="black">Black</option>
+    <option value="blue">Blue</option>
+    <option value="green">Green</option>
   </select>
 )
 ```
@@ -415,10 +461,10 @@ return (
 
 ```jsx
 return (
-  <select className="dropDownContainer" onChange={ (e) => props.update(e.target.value) } disabled={ props.allowEdit === "false" }>
-    <option value="monospace"> Monospace </option>
-    <option value="arial"> Arial </option>
-    <option value="courier"> Courier </option>
+  <select className="dropDownContainer" value={props.fontFamily} onChange={e => props.update(e.target.value)} disabled={!props.allowEdit}>
+    <option value="monospace">Monospace</option>
+    <option value="arial">Arial</option>
+    <option value="times new roman">Times New Roman</option>
   </select>
 )
 ```
@@ -431,10 +477,25 @@ return (
 
 ```jsx
 return (
-  <select className="dropDownContainer" onChange={ (e) => props.update( parseInt(e.target.value) ) } disabled={ props.allowEdit === "false" }>
-    <option value="12"> 12 </option>
-    <option value="13"> 13 </option>
-    <option value="14"> 14 </option>
+  <select className="dropDownContainer" value={props.fontSize} onChange={e => props.update(parseInt(e.target.value))} disabled={!props.allowEdit}>
+    <option value="12">12</option>
+    <option value="16">16</option>
+    <option value="24">24</option>
+  </select>
+)
+```
+
+</details>
+
+<details>
+
+<summary> <code> src/components/EditToggle.js </code> </summary>
+
+```jsx
+return (
+  <select className="dropDownContainer" value={props.allowEdit ? 'true' : 'false'} onChange={e => props.update(e.target.value === 'true')}>
+    <option value="true">Allow Edit</option>
+    <option value="false">Disable Edit</option>
   </select>
 )
 ```
@@ -470,7 +531,7 @@ export default class TextContainer extends Component {
   constructor() {
     super()
     this.state = {
-      text: ''
+      text: 'Lorem ipsum...'
     }
     this.updateText = this.updateText.bind(this)
   }
@@ -487,10 +548,7 @@ export default class TextContainer extends Component {
         <textarea 
           style={ { color: this.props.fontColor, fontFamily: this.props.fontFamily, fontSize: this.props.fontSize } }
           onChange={this.updateText}
-          value={this.state.text} 
-          placeholder='This is where your text will be!'
-          cols="90"
-          rows="30">
+          value={this.state.text}>
         </textarea>
       </div>
     )

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class ColorChanger {
+export default class ColorChanger extends Component {
   render() {
     return (
       <select className="dropDownContainer">
