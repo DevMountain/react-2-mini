@@ -9,26 +9,78 @@ import EditToggle from './components/EditToggle';
 
 class App extends Component {
   // constructor
+  constructor() {
+    super()
+    this.state = {
+      fontColor: 'black',
+      fontSize: 12,
+      fontFamily: 'times new roman',
+      allowEdit: true
+    }
 
-  // updateColor
+    this.updateColor = this.updateColor.bind(this);
+    this.updateFamily = this.updateFamily.bind(this);
+    this.updateSize = this.updateSize.bind(this)
+    this.updateEditStatus = this.updateEditStatus.bind(this)
+  }
 
-  // updateSize
+  updateColor(event){
+    this.setState({
+      fontColor: event.target.value
+    })
+  }
 
-  // updateFamily
+  updateSize(event){
+    this.setState({
+      fontSize: parseInt(event.target.value, 10)
+    })
+  }
 
-  // updateEditStatus
+  updateFamily(event){
+    this.setState({
+      fontFamily : event.target.value
+    })
+  }
+
+  updateEditStatus(status){
+    this.setState({
+      allowEdit : status
+    })
+  }
 
   render() {
+    console.log(this.state)
+    const { fontColor, fontSize, fontFamily, allowEdit } = this.state;
     return (
       <div>
         <div className="headerBar">
-          { /* Render ColorChanger */ }
-          { /* Render SizeChanger */ }
-          { /* Render FamilyChanger */ }
-          { /* Render EditToggle */ }
+          <ColorChanger 
+            fontColor={fontColor} 
+            onUpdate={this.updateColor}
+            allow={allowEdit}
+          />
+          <SizeChanger 
+            fontSize={fontSize}
+            onUpdate={this.updateSize}
+            allow={allowEdit}
+          />
+          <FamilyChanger 
+            fontFamily={fontFamily}
+            onUpdate={this.updateFamily}
+            allow={allowEdit}
+          />
+          <EditToggle 
+            allowEdit={allowEdit}
+            onUpdate={this.updateEditStatus}
+          />
         </div>
         <div className="textArea">
-          { /* Render TextContainer */ }
+          { <TextContainer 
+              fontColor={fontColor}
+              fontSize={fontSize}
+              fontFamily={fontFamily}
+              allow={allowEdit}
+            /> }
         </div>
       </div>
     )
