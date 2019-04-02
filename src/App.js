@@ -22,16 +22,14 @@ class App extends Component {
     return (
       <div>
         <div className="headerBar">
-          { /* Render EditToggle */ }
-          { /* Render ColorChanger */ }
-          { /* Render SizeChanger */ }
-          { /* Render FamilyChanger */ }
+          {/* Render EditToggle */}
+          {/* Render ColorChanger */}
+          {/* Render SizeChanger */}
+          {/* Render FamilyChanger */}
         </div>
-        <div className="textArea">
-          { /* Render TextContainer */ }
-        </div>
+        <div className="textArea">{/* Render TextContainer */}</div>
       </div>
-    )
+    );
   }
 }
 
