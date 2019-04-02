@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default function ColorChanger() {
-  return (
-    <select className="dropDownContainer">
-      <option value="black"> Black </option>
-      <option value="blue"> Blue </option>
-      <option value="green"> Green </option>
-    </select>
-  )
+export default class ColorChanger extends Component {
+  render() {
+    return (
+      <select className="dropDownContainer">
+        <option value="black"> Black </option>
+        <option value="blue"> Blue </option>
+        <option value="green"> Green </option>
+      </select>
+    );
+  }
 }
