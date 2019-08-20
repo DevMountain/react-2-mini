@@ -368,7 +368,6 @@ In this step, we will update our `select` elements in the `EditToggle`, `ColorCh
 ### Instructions
 
 * Open `EditToggle`, `ColorChanger.js`, `FamilyChanger.js`, and `SizeChanger.js` from `src/components/`.
-* Add `props` as a parameter to the component's function.
 * Locate the `select` tag, in all four files, and add an `onChange` prop:
   * The `onChange` should use an arrow function to capture the `event`. 
   * Inside the arrow function call the `update` prop with the value of the target from the `event`.
