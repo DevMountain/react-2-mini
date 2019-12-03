@@ -368,7 +368,6 @@ In this step, we will update our `select` elements in the `EditToggle`, `ColorCh
 ### Instructions
 
 * Open `EditToggle`, `ColorChanger.js`, `FamilyChanger.js`, and `SizeChanger.js` from `src/components/`.
-* Add `props` as a parameter to the component's function.
 * Locate the `select` tag, in all four files, and add an `onChange` prop:
   * The `onChange` should use an arrow function to capture the `event`. 
   * Inside the arrow function call the `update` prop with the value of the target from the `event`.
@@ -384,7 +383,7 @@ In this step, we will update our `select` elements in the `EditToggle`, `ColorCh
 
 ```jsx
 return (
-  <select className="dropDownContainer ml0" onChange={ (e) => props.update(e.target.value) }>
+  <select className="dropDownContainer ml0" onChange={ (e) => this.props.update(e.target.value) }>
     <option value="true"> Allow Edit </option>
     <option value="false"> Disable Edit </option>
   </select>
@@ -399,7 +398,7 @@ return (
 
 ```jsx
 return (
-  <select className="dropDownContainer" onChange={ (e) => props.update(e.target.value) } disabled={ props.allowEdit === "false" }>
+  <select className="dropDownContainer" onChange={ (e) => this.props.update(e.target.value) } disabled={ this.props.allowEdit === "false" }>
     <option value="black"> Black </option>
     <option value="blue"> Blue </option>
     <option value="green"> Green </option>
@@ -415,7 +414,7 @@ return (
 
 ```jsx
 return (
-  <select className="dropDownContainer" onChange={ (e) => props.update(e.target.value) } disabled={ props.allowEdit === "false" }>
+  <select className="dropDownContainer" onChange={ (e) => this.props.update(e.target.value) } disabled={ this.props.allowEdit === "false" }>
     <option value="monospace"> Monospace </option>
     <option value="arial"> Arial </option>
     <option value="courier"> Courier </option>
@@ -431,7 +430,7 @@ return (
 
 ```jsx
 return (
-  <select className="dropDownContainer" onChange={ (e) => props.update( parseInt(e.target.value) ) } disabled={ props.allowEdit === "false" }>
+  <select className="dropDownContainer" onChange={ (e) => this.props.update( parseInt(e.target.value) ) } disabled={ this.props.allowEdit === "false" }>
     <option value="12"> 12 </option>
     <option value="13"> 13 </option>
     <option value="14"> 14 </option>
